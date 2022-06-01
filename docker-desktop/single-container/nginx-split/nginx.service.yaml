@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service-split
+spec:
+  selector:
+    app: nginx-app-split
+  ports:
+    - protocol: TCP
+      port: 80
+      nodePort: 31321
+  type: NodePort
