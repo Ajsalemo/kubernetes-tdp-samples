@@ -2,7 +2,7 @@
 
 set -xe
 
-echo "Checking Docker if Docker is installed.."
+echo "Checking if Docker is installed.."
 
 if [ -x "$(command -v docker)" ]; then
     echo "Docker is already installed, skipping.."
@@ -25,9 +25,9 @@ else
     # Check if docker is available after installation
     if [ -x "$(command -v docker)" ]; then
         echo "Docker has been successfully installed.."
-        exit 1
     else
         echo "An issue may have occurred during Docker installation.."
+        exit 1
     fi
 fi
 
