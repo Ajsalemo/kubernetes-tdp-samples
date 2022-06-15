@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: minikube-service-single
+spec:
+  selector:
+    app: minikube-node-single
+  ports:
+    - protocol: TCP
+      port: 3000
+      nodePort: 31321
+  type: NodePort

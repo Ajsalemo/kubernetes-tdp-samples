@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minikube-deployment-single
+  labels:
+    app: minikube-node-single
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minikube-node-single
+  template:
+    metadata:
+      labels:
+        app: minikube-node-single
+    spec:
+      containers:
+      - name: kubernetestdpsamples-minikube-nodejs
+        image: ansalemocontainerregistry.azurecr.io/kubernetestdpsamples-minikube-nodejs:latest
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:
+      - name: minikubesecret
+
+
