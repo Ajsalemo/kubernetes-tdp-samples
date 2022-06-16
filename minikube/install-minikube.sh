@@ -42,17 +42,16 @@ else
     if [ -x "$(command -v minikube)" ]; then
         echo "Minikube is already installed, skipping.."
     else
-        echo "Minikube needs to be installed, assuming this is a fresh install, running.."
-        echo "Current user is $USER, this is who will be assigned to the Docker user group to run Minikube.."
-        sudo usermod -aG docker $USER && \
-        # newgrp creates a sub shell which will cause all subsequent commands to be ran in the new group
-        # <<EONG is used as a here-doc to finish these commands in this group and output stdout for Minikube in teh original group
-        newgrp docker <<EONG 
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
-EONG
+        curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && \
+        sudo install minikube-linux-amd64 /usr/local/bin/minikube
         if [ -x "$(command -v minikube)" ]; then
             echo "Minikube has been successfully installed.."
+            echo "Current user is $USER, this is who will be assigned to the Docker user group to run Minikube.."
+            sudo usermod -aG docker $USER && \
+            # newgrp creates a sub shell which will cause all subsequent commands to be ran in the new group
+            # <<EONG is used as a here-doc to finish these commands in this group and output stdout for Minikube in teh original group
+            newgrp docker 
+            echo "Installation done."
         else
             echo "An issue may have occurred during Minikube installation.."
             exit 1
