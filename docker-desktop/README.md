@@ -8,4 +8,4 @@
     - [Enable Kubernetes](https://docs.docker.com/desktop/kubernetes/#enable-kubernetes)
 
 
-2. Clone this repo and change directories to `/docker-desktop`. Follow the directions in both `nginx` and `nginx-split`.
+2. Follow the directions in both `/nginx` and `/nginx-split`.

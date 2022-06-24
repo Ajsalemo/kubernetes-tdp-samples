@@ -49,7 +49,6 @@ else
             echo "Current user is $USER, this is who will be assigned to the Docker user group to run Minikube.."
             sudo usermod -aG docker $USER && \
             # newgrp creates a sub shell which will cause all subsequent commands to be ran in the new group
-            # <<EONG is used as a here-doc to finish these commands in this group and output stdout for Minikube in teh original group
             newgrp docker 
             echo "Installation done."
         else
