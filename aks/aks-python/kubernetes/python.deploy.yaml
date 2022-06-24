@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-python
+  template:
+    metadata:
+      labels:
+        app: aks-python
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+      - name: aks-python
+        image: yourcontainerregistry.azurecr.io/kubernetes-tdp-samples-aks-python:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 80
+          name: aks-python
