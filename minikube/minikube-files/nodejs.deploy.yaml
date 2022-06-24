@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kubernetestdpsamples-minikube-nodejs
-        image: ansalemocontainerregistry.azurecr.io/kubernetestdpsamples-minikube-nodejs:latest
+        image: yourcontainerregistry.azurecr.io/kubernetestdpsamples-minikube-nodejs:latest
         ports:
         - containerPort: 3000
       imagePullSecrets:
