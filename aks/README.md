@@ -8,8 +8,8 @@
 3. [Configure the AKS cluster to connect with your Container Registry](https://docs.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?toc=%2Fazure%2Fcontainer-registry%2Ftoc.json&bc=%2Fazure%2Fcontainer-registry%2Fbreadcrumb%2Ftoc.json&tabs=azure-cli#configure-acr-integration-for-existing-aks-clusters). You can check connectivity between AKS and ACR with [az aks check-acr](https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-check-acr)
 
 4. Deploy the Service and Deployment with the following:
-   a. `kubectl apply -f python.service.yaml`
-   b. `kubectl apply -f python.deploy.yaml`
+   - `kubectl apply -f python.service.yaml`
+   - `kubectl apply -f python.deploy.yaml`
 
 5. Use `kubectl get services --watch` and wait for the External IP to populate. Once this is populated, enter this in the browser. Afterwards (this may take a few seconds) the application should be viewable.
 
